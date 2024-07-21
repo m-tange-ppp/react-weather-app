@@ -4,7 +4,6 @@ import Form from "./components/Form"
 import Results from "./components/Results"
 import Loading from "./components/Loading"
 
-
 const App = () => {
     const [city, setCity] = useState("")
 
@@ -18,10 +17,12 @@ const App = () => {
 
     const [loading, setLoading] = useState(false)
 
+    const apiUrl = import.meta.env.VITE_APP_API_URL
+
     const getWeather = (e) => {
         e.preventDefault()
         setLoading(true)
-        fetch(`https://api.weatherapi.com/v1/current.json?key=43a987934ed44faa94b102328242007&q=${city}&aqi=no`)
+        fetch(apiUrl + `&q=${city}&aqi=no`)
             .then(res => res.json())
             .then(data => {
                 setResults({
