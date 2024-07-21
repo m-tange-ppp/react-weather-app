@@ -35,7 +35,10 @@ const App = () => {
                 setCity("")
                 setLoading(false)
             })
-            .catch(() => alert("エラーが発生しました。"))
+            .catch(() => {
+                alert("エラーが発生しました。")
+                setLoading(false)
+            })
     }
 
     return (
